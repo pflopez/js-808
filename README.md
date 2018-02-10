@@ -1,3 +1,65 @@
+# Workplan:
+
+0 - Read me and planning ( 30 mins )
+1 - Fork project, create empty ng app, push. ( 15 min )
+2 - Add initial models ( 30  mins  )
+3 - Add initial components (basic) ( 1 hr )
+4 - Set up basic UI interface (mostly wireframes) ( 1 hr )
+5 - Sequencer basic ( 1 hr )
+6 - Add some flavor to  UI (styles and enable/disable buttons) (1 hr)
+7 - Responsiveness, similar to a PO-12 ( 1 hr )
+8 - Change time on the fly ( 30 mins if we begin from the start when change, ? if we need to sync up)
+9 - Add velocity parameters ( 30 mins )
+
+
+Those are my initial estimates. 
+
+
+## How much time did you spend on the exercise, what parts took longer?
+
+
+
+
+## What were the hard parts, what parts did you enjoy most?
+
+
+
+## Data modeling - How did you model the concepts of songs and tracks/patterns, 
+can you explain why?
+
+I broke it down as a series of sequences or lanes for each instrument or track. Each track is comprised of steps that can be turned on or off, as well as a velocity setting.
+The drum machine has a set of songs and loads the one selected.
+
+
+For the sequencer itself, I could use rxjs observables or just plain old setInterval. Run into issues loading rxjs and didn’t wanna waste time on that.
+ 
+
+
+## Simplicity vs Flexibility - How flexible is your solution? Can a user define patterns of different lengths? Can they play at the same time? Can the patterns be changed in real time? Can the velocity be set? None of these features are expected, what is needed for you to add support for these?\
+
+- Patterns should play at the same time, as long as the audio library of choice allows it.
+- Patterns should also be able to change in real time.
+- Velocity can be set as well, although there is no UI to change it
+- The user cannot set patterns of different lengths. The main challenge here is to sync up each
+
+
+
+Is your code tested? Why/why not? How would you test it (or test it better)?
+
+Not at all. no time.
+If I where to spend some time on testing, I’ll add some test to the sequencer and the tracks.
+
+
+TODOS
+
+- No vendor prefixes for css. Only tested on chrome. Add auto-prefixer to fix this.
+- Save the patterns, using local storage for example. Probably needs a UI element to save explicitly.
+
+
+
+
+----------------------------------------------------------------
+
 # JS-808 Practice exercise
 
 The goal of this exercise is to practice designing models and interfaces, and to get a feel for how you architect front-end code.
