@@ -1,3 +1,19 @@
-<div>
+<section>
+    <div>JS- 808</div>
+
+    <div class="controls">
+        <div>▶</div>
+        <div>■</div>
+
+        <input value="128">
+        <div>BPM</div>
+
+        <select (change)="changeSequence(selectElem.value)" #selectElem>
+            <option *ngFor="let sequence of sequences; let i = index" [value]="i"> Sequence {{i+1}}</option>
+        </select>
+    </div>
+
+</section>
+<section>
     <track-lane *ngFor="let track of sequence.tracks" [track]="track"></track-lane>
-</div>
+</section>

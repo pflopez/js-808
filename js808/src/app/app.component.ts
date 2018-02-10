@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { sequenceOne } from "./demo-tracks";
+import { sequences } from "./demo-tracks";
+
 
 @Component({
   selector: 'app-root',
@@ -8,5 +9,12 @@ import { sequenceOne } from "./demo-tracks";
 })
 export class AppComponent {
   title = 'app';
-  sequence = sequenceOne;
+  sequences = sequences;
+  sequence = sequences[0];
+
+  constructor(){}
+
+  changeSequence(index){
+    this.sequence = sequences[index];
+  }
 }
