@@ -1,0 +1,11 @@
+.step-button {
+  width: 20px;
+  height: 20px;
+  margin: 10px;
+  background-color: dimgray;
+  display: inline-block;
+
+  &.step-button_active {
+    background-color: red;
+  }
+}

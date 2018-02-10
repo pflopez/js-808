@@ -1,0 +1,4 @@
+<div class="track-lane__name">{{ track.instrument }}</div>
+<div class="track-lane__steps">
+    <step-button *ngFor="let step of track.steps" [step]="step"></step-button>
+</div>

@@ -3,11 +3,15 @@ import { NgModule } from '@angular/core';
 
 
 import { AppComponent } from './app.component';
+import { StepButtonComponent } from "./components/step-button/step-button.component";
+import { TrackLaneComponent } from "./components/track-lane/track-lane.component";
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    StepButtonComponent,
+    TrackLaneComponent
   ],
   imports: [
     BrowserModule
