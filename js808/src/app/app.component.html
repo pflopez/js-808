@@ -2,13 +2,13 @@
     <div class="machine__name">JS- 808</div>
 
     <div class="machine__controls">
-        <button class="control-element">Start</button>
-        <button class="control-element">Stop</button>
+        <button class="control-element" (click)="start()" [disabled]="playing">Start</button>
+        <button class="control-element" (click)="stop()">Stop</button>
 
-        <input value="128" class="control-element control-element_input">
+        <input value="128" class="control-element control-element_input" [disabled]="playing">
         <div>BPM</div>
 
-        <select (change)="changeSequence(selectElem.value)" #selectElem class="control-element">
+        <select (change)="changeSequence(selectElem.value)" #selectElem class="control-element" [disabled]="playing">
             <option *ngFor="let sequence of sequences; let i = index" [value]="i"> Sequence {{i+1}}</option>
         </select>
     </div>
