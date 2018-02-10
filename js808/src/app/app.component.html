@@ -1,14 +1,14 @@
-<section>
-    <div>JS- 808</div>
+<section class="machine__header">
+    <div class="machine__name">JS- 808</div>
 
-    <div class="controls">
-        <div>▶</div>
-        <div>■</div>
+    <div class="machine__controls">
+        <button class="control-element">Start</button>
+        <button class="control-element">Stop</button>
 
-        <input value="128">
+        <input value="128" class="control-element control-element_input">
         <div>BPM</div>
 
-        <select (change)="changeSequence(selectElem.value)" #selectElem>
+        <select (change)="changeSequence(selectElem.value)" #selectElem class="control-element">
             <option *ngFor="let sequence of sequences; let i = index" [value]="i"> Sequence {{i+1}}</option>
         </select>
     </div>
