@@ -12,6 +12,6 @@ export class StepButtonComponent {
 	constructor(){}
 	
 	toggle(){
-		this.step.active = !this.step.active;
+		this.step.on = !this.step.on;
 	}
 }

@@ -1,4 +1,8 @@
 export interface Step {
-	active: boolean;
+	on: boolean;
 	velocity?: number; 
+}
+
+export interface StepIndicator {
+	active: boolean;
 }

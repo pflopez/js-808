@@ -6,7 +6,7 @@ import { Step } from "./models/step";
 
 function generateSequence( sequence: number[]): Step[]{
 	return sequence.map( ( n ) => {
-		return n ? { active: true } : { active: false };
+		return n ? { on: true } : { on: false };
 	});
 }
 
