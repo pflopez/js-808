@@ -1,11 +1,12 @@
 .step-button {
-  width: 20px;
-  height: 20px;
-  margin: 10px;
-  background-color: dimgray;
+  width: 25px;
+  height: 35px;
+  margin: 5px;
+  background-color: #aaa;
   display: inline-block;
+  border-radius: 5px;
 
   &.step-button_active {
-    background-color: red;
+    background-color: #e87676;
   }
 }

@@ -8,4 +8,10 @@ import { Step } from "../../models/step";
 })
 export class StepButtonComponent {
 	@Input() step: Step;
+
+	constructor(){}
+	
+	toggle(){
+		this.step.active = !this.step.active;
+	}
 }

@@ -6,12 +6,10 @@ import { Track } from "../../models/track";
 	templateUrl: './track-lane.component.html',
 	styleUrls: ['./track-lane.component.scss']
 })
-export class TrackLaneComponent implements OnInit{
-	ngOnInit(): void {
-		console.log("the track is ", this.track);
+export class TrackLaneComponent {
+	constructor(){
+		
 	}
-
 	@Input() track: Track;
-
-
+	
 }

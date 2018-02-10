@@ -1,32 +1,40 @@
 // awful variable names, but easy to preview pattern on code.
 import { Sequence } from "./models/sequence";
 import { Track } from "./models/track";
-const O = { active: true };
-const x = { active: false };
-const fourInFloor = [ O, x, x, x, O, x, x, x, O, x, x, x, O, x, x, x  ];
-const accent      = [ x, x, O, x, x, x, O, x, x, x, O, x, x, x, O, x  ];
-const offBeat     = [ x, x, x, x, O, x, x, x, x, x, x, x, O, x, x, x  ];
-const empty       = [ x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x  ];
-const all         = [ O, O, O, O, O, O, O, O, O, O, O, O, O, O, O, O  ];
-const alternate   = [ O, x, O, x, O, x, O, x, O, x, O, x, O, x, O, x  ];
+import { Step } from "./models/step";
+
+
+function generateSequence( sequence: number[]): Step[]{
+	return sequence.map( ( n )=> { 
+		return n ? { active: true } : { active: false };
+	});
+}
+
+
+const fourInFloor = [ 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 ];
+const accent      = [ 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0 ];
+const offBeat     = [ 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0 ];
+const empty       = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ];
+const all         = [ 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ];
+const alternate   = [ 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0 ];
 
 export let sequenceOne = new Sequence([
-	new Track('Drums', fourInFloor),
-	new Track('Snare', offBeat),
-	new Track('Open Hat', accent),
-	new Track('Closed Hat', fourInFloor)
+	new Track('Drums', generateSequence(fourInFloor)),
+	new Track('Snare', generateSequence(offBeat) ),
+	new Track('Open Hat', generateSequence(accent) ),
+	new Track('Closed Hat', generateSequence(fourInFloor) )
 ]);
 
 export let sequenceTwo = new Sequence([
-	new Track('Drums', fourInFloor),
-	new Track('Snare', offBeat),
-	new Track('Open Hat', empty),
-	new Track('Closed Hat', all)
+	new Track('Drums', generateSequence(fourInFloor) ),
+	new Track('Snare', generateSequence(offBeat) ),
+	new Track('Open Hat', generateSequence(empty) ),
+	new Track('Closed Hat', generateSequence(all) )
 ]);
 
 export let sequenceTree = new Sequence([
-	new Track('Drums', alternate),
-	new Track('Snare', fourInFloor),
-	new Track('Open Hat', empty),
-	new Track('Closed Hat', all)
+	new Track('Drums', generateSequence(alternate) ),
+	new Track('Snare', generateSequence(fourInFloor) ),
+	new Track('Open Hat', generateSequence(empty) ),
+	new Track('Closed Hat', generateSequence(all) )
 ]);
