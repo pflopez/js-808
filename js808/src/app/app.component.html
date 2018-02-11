@@ -5,7 +5,7 @@
         <button class="control-element" (click)="start()" [disabled]="playing">Start</button>
         <button class="control-element" (click)="stop()">Stop</button>
 
-        <input value="128" class="control-element control-element_input" [disabled]="playing">
+        <input [(ngModel)]="bpm" class="control-element control-element_input" [disabled]="playing">
         <div>BPM</div>
 
         <select (change)="changeSequence(selectElem.value)" #selectElem class="control-element" [disabled]="playing">

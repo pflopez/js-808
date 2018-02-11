@@ -9,6 +9,7 @@ import { StepIndicatorComponent } from "./components/step-indicator/step-indicat
 import { StepIndicatorLaneComponent } from "./components/step-indicator-lane/step-indicator-lane.component";
 import { SequencerService } from "./services/sequencer.service";
 import { PlayerService } from "./services/player.service";
+import { FormsModule } from "@angular/forms";
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { PlayerService } from "./services/player.service";
     StepIndicatorLaneComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule
   ],
   providers: [
     PlayerService,

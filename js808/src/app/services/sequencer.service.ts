@@ -8,12 +8,23 @@ const totalSteps = 16;
 @Injectable()
 export class SequencerService {
 
-	private timer = Observable.timer(0, this.bpmToMiliseconds() );
+	private bpm = 120;
+
+	private timer = Observable.timer(0, this.bpmToMiliseconds(this.bpm) );
 	private timeSub: Subscription;
 	
 	sequence = new BehaviorSubject(-1);
 
 	constructor() { }
+	
+	getBpm(): number {
+		return this.bpm;
+	}
+	
+	setBpm(bpm: number){
+		this.bpm = bpm;
+		this.timer = Observable.timer(0, this.bpmToMiliseconds(this.bpm) );
+	}
 	
 	
 	start(){
@@ -29,8 +40,8 @@ export class SequencerService {
 	}
 
 
-	private bpmToMiliseconds(): number{
-		return 500;
+	private bpmToMiliseconds(bpm): number{
+		return ( 60000 / bpm );
 	}
 
 

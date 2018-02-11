@@ -16,10 +16,14 @@ export class AppComponent {
   sequences = sequences;
   sequence = sequences[0];
   playing = false;
+  bpm : number;
 
 
  
-  constructor( private sequencerService: SequencerService ){}
+  constructor( private sequencerService: SequencerService ){
+    this.bpm = this.sequencerService.getBpm();
+
+  }
 
   changeSequence(index){
     this.sequence = sequences[index];
@@ -27,6 +31,7 @@ export class AppComponent {
 
   start(){
     this.playing = true;
+    this.sequencerService.setBpm(this.bpm);
     this.sequencerService.start();
   }
 
