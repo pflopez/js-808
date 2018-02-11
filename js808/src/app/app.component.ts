@@ -1,9 +1,8 @@
 import { Component } from '@angular/core';
 import { sequences } from "./demo-tracks";
-import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/observable/timer';
-import { Subscription } from "rxjs/Rx";
 import { SequencerService } from "./services/sequencer.service";
+
 
 
 
@@ -18,9 +17,8 @@ export class AppComponent {
   sequence = sequences[0];
   playing = false;
 
-  timeSub: Subscription;
-  timer = Observable.timer(0, 1000);
 
+ 
   constructor( private sequencerService: SequencerService ){}
 
   changeSequence(index){
@@ -29,15 +27,13 @@ export class AppComponent {
 
   start(){
     this.playing = true;
-    // basic timer, do a MOD based on number of steps and should be good to go.
-    this.timeSub =  this.timer.subscribe( ( val )=> console.log( val ))
+    this.sequencerService.start();
   }
 
   stop(){
     this.playing = false;
-    this.timeSub.unsubscribe();
+    this.sequencerService.stop();
   }
-
 
 
 }

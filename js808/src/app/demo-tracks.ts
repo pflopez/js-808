@@ -1,4 +1,4 @@
-// awful variable names, but easy to preview pattern on code.
+
 import { Sequence } from "./models/sequence";
 import { Track } from "./models/track";
 import { Step } from "./models/step";
@@ -6,7 +6,7 @@ import { Step } from "./models/step";
 
 function generateSequence( sequence: number[]): Step[]{
 	return sequence.map( ( n ) => {
-		return n ? { on: true } : { on: false };
+		return n ? { on: true , velocity: 100 } : { on: false , velocity: 100 };
 	});
 }
 
@@ -18,24 +18,24 @@ const all         = [ 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ];
 const alternate   = [ 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0 ];
 
 const sequenceOne = new Sequence([
-	new Track('Drums', generateSequence(fourInFloor)),
-	new Track('Snare', generateSequence(offBeat) ),
-	new Track('Open Hat', generateSequence(accent) ),
-	new Track('Closed Hat', generateSequence(fourInFloor) )
+	new Track('Drums', generateSequence(fourInFloor), 'drum.wav'),
+	new Track('Snare', generateSequence(offBeat), 'snare.wav' ),
+	new Track('Open Hat', generateSequence(accent), 'open-hat.wav'),
+	new Track('Closed Hat', generateSequence(fourInFloor), 'closed-hat.wav')
 ]);
 
 const sequenceTwo = new Sequence([
-	new Track('Drums', generateSequence(fourInFloor) ),
-	new Track('Snare', generateSequence(offBeat) ),
-	new Track('Open Hat', generateSequence(empty) ),
-	new Track('Closed Hat', generateSequence(all) )
+	new Track('Drums', generateSequence(fourInFloor), 'drum.wav'),
+	new Track('Snare', generateSequence(offBeat), 'snare.wav' ),
+	new Track('Open Hat', generateSequence(empty), 'open-hat.wav'),
+	new Track('Closed Hat', generateSequence(all), 'closed-hat.wav')
 ]);
 
 const sequenceTree = new Sequence([
-	new Track('Drums', generateSequence(alternate) ),
-	new Track('Snare', generateSequence(fourInFloor) ),
-	new Track('Open Hat', generateSequence(empty) ),
-	new Track('Closed Hat', generateSequence(all) )
+	new Track('Drums', generateSequence(alternate), 'drum.wav'),
+	new Track('Snare', generateSequence(fourInFloor), 'snare.wav' ),
+	new Track('Open Hat', generateSequence(empty), 'open-hat.wav'),
+	new Track('Closed Hat', generateSequence(all), 'closed-hat.wav')
 ]);
 
 export const sequences = [sequenceOne, sequenceTwo, sequenceTree];

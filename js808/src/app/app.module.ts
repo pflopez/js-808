@@ -8,6 +8,7 @@ import { TrackLaneComponent } from "./components/track-lane/track-lane.component
 import { StepIndicatorComponent } from "./components/step-indicator/step-indicator.component";
 import { StepIndicatorLaneComponent } from "./components/step-indicator-lane/step-indicator-lane.component";
 import { SequencerService } from "./services/sequencer.service";
+import { PlayerService } from "./services/player.service";
 
 
 @NgModule({
@@ -21,7 +22,10 @@ import { SequencerService } from "./services/sequencer.service";
   imports: [
     BrowserModule
   ],
-  providers: [ SequencerService ],
+  providers: [
+    PlayerService,
+    SequencerService
+  ],
   bootstrap: [ AppComponent ]
 })
 export class AppModule { }

@@ -5,4 +5,8 @@
   background-color: #aaa;
   display: inline-block;
   border-radius: 50%;
+
+  &.step-indicator_active{
+    background-color: red;
+  }
 }
