@@ -4,8 +4,6 @@ import 'rxjs/add/observable/timer';
 import { SequencerService } from "./services/sequencer.service";
 
 
-
-
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
