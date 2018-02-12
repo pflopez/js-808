@@ -1,15 +1,15 @@
 # Workplan:
 
-0 - Read me and planning ( 30 mins )
-1 - Fork project, create empty ng app, push. ( 15 min )
-2 - Add initial models ( 30  mins  )
-3 - Add initial components (basic) ( 1 hr )
-4 - Set up basic UI interface (mostly wireframes) ( 1 hr )
-5 - Sequencer basic ( 1 hr )
-6 - Add some flavor to  UI (styles and enable/disable buttons) (1 hr)
-7 - Responsiveness, similar to a PO-12 ( 1 hr )
-8 - Change time on the fly ( 30 mins if we begin from the start when change, ? if we need to sync up)
-9 - Add velocity parameters ( 30 mins )
+0. Read me and planning ( 30 mins )
+1. Fork project, create empty ng app, push. ( 15 min )
+2. Add initial models ( 30  mins  )
+3. Add initial components (basic) ( 1 hr )
+4. Set up basic UI interface (mostly wireframes) ( 1 hr )
+5. Sequencer basic ( 1 hr )
+6. Add some flavor to  UI (styles and enable/disable buttons) (1 hr)
+7. Responsiveness, similar to a PO-12 ( 1 hr )
+8. Change time on the fly ( 30 mins if we begin from the start when change, ? if we need to sync up)
+9. Add velocity parameters ( 30 mins )
 
 
 Those are my initial estimates. 
