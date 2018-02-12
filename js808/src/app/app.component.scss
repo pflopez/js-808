@@ -8,7 +8,7 @@
   border: 2px solid $machine-border-color;
   background-color: $machine-bg-color;
   max-width: 1024px;
-  @media screen and (max-width: 320px) {
+  @media screen and (max-width: $phone-breakpoint) {
     height: 100%;
   }
 }
@@ -22,7 +22,7 @@
   color: #555;
   margin: 4px 4px 10px;
 
-  @media screen and (max-width: 320px) {
+  @media screen and (max-width: $phone-breakpoint) {
     display: block;
   }
 }
@@ -31,24 +31,31 @@
   font-size: 40px;
   white-space:nowrap;
 
-  @media screen and (max-width: 320px) {
+  @media screen and (max-width: $phone-breakpoint) {
     text-align: center;
   }
 }
 .machine__controls {
   display: flex;
   align-items: center;
+  @media screen and (max-width: $phone-breakpoint) {
+    justify-content: space-between;
+  }
+}
+.machine__controls__time {
+  display: flex;
+  align-items: center;
 }
 
 .machine__sequencer {
-  padding: 20px 25px 25px 5px;
-  @media screen and (max-width: 320px) {
+  padding: 20px 25px 45px 5px;
+  @media screen and (max-width: $phone-breakpoint) {
     padding: 10px;
   }
 }
 
 .machine__bpm-label{
-  @media screen and (max-width: 320px) {
+  @media screen and (max-width: $phone-breakpoint) {
     display: none;
   }
 }

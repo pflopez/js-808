@@ -3,7 +3,7 @@
 :host {
   margin: 5px;
   flex:1;
-  @media screen and (max-width: 320px) {
+  @media screen and (max-width: $phone-breakpoint) {
     margin: 2px;
   }
 }

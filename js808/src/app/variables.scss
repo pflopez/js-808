@@ -8,6 +8,8 @@ $button-off-border: #777;
 $button-active-color: #ab5656;
 $button-active-border: #DD6F6F;
 
+$phone-breakpoint : 412px;
+
 @mixin active-button {
   background-color: $button-active-color;
   border-color: $button-active-border;
