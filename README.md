@@ -14,130 +14,99 @@
 
 Those are my initial estimates. 
 
+On the four hour mark I didn't had time to make the UI any prettier than a wireframe, which I expected.
+
+**Extra time - final solution**
+
+- Spend some time on testing that I didn't initially planned for. 
+- Spend more than an hour on adding UI flavor.
+- I did add some responsiveness, but simpler than I initially thought.
+- Did not add velocity parameters (a long-press will be a nice UI for it!) 
+- Did not add the functionality to change time on the fly.
+
+# Installation
+
+This is a basic angular 5 app done with angular-cli.
+Cloning the project and doing an `npm install` after should get you going.
+`ng serve` to run.
+
 
 ## How much time did you spend on the exercise, what parts took longer?
 
+At the four hour mark, I think my time was evenly spent between setting up the components, setting up a very basic UI,
+setting up the sub-pub with services and reworking a bit my initial "demo tracks" to accommodate some issues.
 
+It took me longer than I though to set up my project with the rxjs imports, and my IDE stills shows some missing
+dependencies although its working. Thanks Webstorm!
 
+I also spent some time debating if I should include some css library "to save time" but ended up doing some very basic 
+styles just to set the layout.
+
+Finding the right RXJS operator to start the sequence right away also took some research time.
+
+**Extra time - final solution**
+
+After taking another look, the logic for the bpm to milliseconds was off.
+Fixed that, and spend some time setting up the project to run tests with phantom.
+Added a couple of tests for the bpmToMs feature. Those test come out a bit weird, as I had some issues trying to
+spy on the number of times the subscriber was called. ( zone js context maybe? )
+
+Decided to move on and spend some time styling the app a bit. Added some styles and some basic responsiveness, 
+as well as fixing some issues here and there.
 
 ## What were the hard parts, what parts did you enjoy most?
 
+Setting up the sequencer was not that hard after I got the right RXJS operator, and I think that was the one I enjoyed 
+the most as I haven't used that operator before.
+
+Prioritizing what to do on the four hours was interesting, I think the hardest part was to not get carried away
+with focusing on only one area.
+
+**Extra time - final solution**
+
+Testing the `sequencer.service` turned out to be a lot harder that I thought.
+I also enjoyed styling the app, and I could keep on going! 
 
 
-## Data modeling - How did you model the concepts of songs and tracks/patterns, 
-can you explain why?
+## Data modeling - How did you model the concepts of songs and tracks/patterns, can you explain why?
 
-I broke it down as a series of sequences or lanes for each instrument or track. Each track is comprised of steps that can be turned on or off, as well as a velocity setting.
-The drum machine has a set of songs and loads the one selected.
+I broke it down as a series of sequences or lanes for each instrument or track. 
+Each track is comprised of steps that can be turned on or off, as well as a velocity setting.
+The drum machine has a set of songs (sequences) and loads the one selected.
 
+Each track will be responsible of triggering a sound if the current step is on.
+The main app will turn on and off the sequencer, and each component just subscribes to the event that tells us
+the active step.
 
-For the sequencer itself, I could use rxjs observables or just plain old setInterval. Run into issues loading rxjs and didn’t wanna waste time on that.
  
 
+## Simplicity vs Flexibility - How flexible is your solution? 
+Can a user define patterns of different lengths? 
+Can they play at the same time? 
+Can the patterns be changed in real time? 
+Can the velocity be set? None of these features are expected, what is needed for you to add support for these?
 
-## Simplicity vs Flexibility - How flexible is your solution? Can a user define patterns of different lengths? Can they play at the same time? Can the patterns be changed in real time? Can the velocity be set? None of these features are expected, what is needed for you to add support for these?\
+- Current solution is for 16 steps, and its not really flexible on that.
+- Currently is the `sequencerService` that gives the 'steps' from 1 to 16 but we could move that logic to each 'track' and let each track figure out when to start over.
+- Patterns can change in real time.
+- Velocity can be set as well, although there is no UI to change it, currently is all 100%. Adding a long-press to `step-button` to toggle velocity (low/med/high) will be a way to solve this. 
+- The user cannot set patterns of different lengths.
 
-- Patterns should play at the same time, as long as the audio library of choice allows it.
-- Patterns should also be able to change in real time.
-- Velocity can be set as well, although there is no UI to change it
-- The user cannot set patterns of different lengths. The main challenge here is to sync up each
+**Extra time - final solution**
 
+- Currently there can only be 3 main sequences, as the current UI element only supports three.
 
-
-Is your code tested? Why/why not? How would you test it (or test it better)?
-
-Not at all. no time.
-If I where to spend some time on testing, I’ll add some test to the sequencer and the tracks.
+## Is your code tested? Why/why not? How would you test it (or test it better)?
 
 
-TODOS
+Some tests where added to the sequencer service, as I had a bug on my bpm to Ms method.
 
-- No vendor prefixes for css. Only tested on chrome. Add auto-prefixer to fix this.
+
+## TODOS
+
 - Save the patterns, using local storage for example. Probably needs a UI element to save explicitly.
+- Parametrize the color scheme so we can change basically the main color and the highlight color.
+- Keep polishing the "phone" version.
+- More tests? Always more tests.
 
 
-
-
-----------------------------------------------------------------
-
-# JS-808 Practice exercise
-
-The goal of this exercise is to practice designing models and interfaces, and to get a feel for how you architect front-end code.
-
-There aren't good or bad solutions; rather, there are solutions that match the requirements and some that don't. There are solutions that might be considered elegant by some by some and solutions that would be considered clever.
-
-## Time Expectations
-We ask that you set aside about 4 hours to complete the exercise. It's ok to go over if you're having fun (drum kits are very fun), but we respect your time. If after 4 hours the exercise is incomplete, share your code and tell us how you would finish it in the form of comments, diagrams, long ramblings with links to things you're thinking about, or anything that will help us understand how you would troubleshoot your way through a task.
-
-Our engineering team cares about having a good work/life balance. Some of our team have done this exercise recently as part of the hiring process. We empathize with any stress you might be under when looking for a career change. Do your best, let your self come through in your work, and try not to stress out. 
-
-## The Exercise:  Building a (Soundless) Drum Machine
-
-This exercise assumes you are somewhat familiar with drum machines.
-If you aren't please read http://en.wikipedia.org/wiki/Drum_machine
-
-Your challenge is to code the sequencer part of our Drum Machine, which we called JS-808. Your sequencer should be able to support the famous [four-on-the-floor](http://en.wikipedia.org/wiki/Four_on_the_floor_(music)) rhythm pattern, but be flexible enough to let a user edit the pattern to fit their musical whims.
-
-Here is a wireframe of an example interface. 
-![Example interface](/sequence-diagram.png?raw=true)
-You can build your app to look like this wireframe. If you're someone who loves css and beautifying the UI, show us that. Approach this task as your way of displaying your
-favorite parts of frontend development. 
-
-**READ THIS IT IS REALLY IMPORTANT:**     
-This drumkit does **NOT NEED TO PLAY SOUND.** Instead we want to see a real time **VISUAL** representation of the sequence being played.
-
-### REQUIRED FEATURES
-
-Your drum machine should include the following features:
-
-- [ ] Play & stop controls.
-- [ ] The ability for the user to alter the tempo of the sequence. This tempo change can occur while the song is stopped or playing – whatever makes the most sense for your code structure.
-- [ ] Playback readout - there should be a visual indication of the active step while the sequence is playing. Ideally, the playback speed will also match the
-sequence tempo.
-- [ ] There should be 3 premade drum pattern sequences that can be loaded into your drumkit. The UI element is up to you; in the wireframe it is the dropdown. 
-- [ ] The pattern is expected to be 8 steps or more. eg- if you look at that wireframe, there are 16 columns.
-- [ ] The time signature is expected to be 4/4 (if you don't know what that is, don't worry and ignore this instruction).
-
-### Useful Timing Info
-
-At a 4/4 time signature of 60 BPM (beats per minute), we get 1 beat per second.
-We can assume that 8 steps = 1 bar, representing 4 beats.
-In other words, a 8 step pattern would take `(60/BPM)*4` seconds to play and each step would take `((60/BPM)*4)/8` seconds.
-
-### Extra mile
-If you have done all the required features and want to keep going because you just made a cool drumkit, try doing the following:
-
-* Output sound - you might want to look at some higher-level libraries that allow you to load and play sounds rather than getting mired in the details of managing and playing the sounds directly (though you're certainly welcome to do that too).
-* Try mix and matching patterns of different durations (8, 16, 32 steps),
-  note that if you have 2 patterns, one 8 and one 16, the 8 should play
-  twice while the 16 plays once.
-* Add support for velocity (the amplitude/volume of a note).
-* You don't have to limit yourself to the features/layout/parts on the diagram. Take inspiration from existing drum machines and feel free to get creative!
-
-### What can I use & are we looking for?
-- Use the tools you are comfortable with! You can use any framework. You can use plugins & libraries. You can write this entirely in vanilla JS. Want to use canvas? Go for it. 
-- Please include a readme. If we need to run the code locally to see it work, please give us instructions.
-- Please use this exercise as a way to show us what you like about Frontend Development. Some people live for performance, others for a11y, or great UX or writing tests. We are aware of the time constraint, if what you love takes time, put comments in. 
-
-### Splice Evaluation
-
-If you are given this exercise as a code challenge, we are going to
-discuss a few things with you. In order to help you prepare, here is a
-list of various specific parts and general aspects of programming we are
-interested in discussing:
-
-* How much time did you spend on the exercise, what parts took longer?
-* What were the hard parts, what parts did you enjoy most?
-* Data modeling - How did you model the concepts of songs and
-  tracks/patterns, can you explain why?
-* Simplicity vs Flexibility - How flexible is your solution? Can a user
-  define patterns of different lengths? Can they play at the same time?
-  Can the patterns be changed in real time? Can the velocity be set?
-  None of these features are expected, what is needed for you to add
-  support for these?
-* Is your code tested? Why/why not? How would you test it (or test it better)?
-
-
-### Submitting your solution
-
-As soon as you're ready, send us a link to your repo (either a fork of this repo or a new one that you created). You don't have to send us the link before you're ready, but we recommend committing code early and often, with clear descriptive commit messages. This helps us follow your thought process as you build your solution.
