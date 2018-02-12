@@ -10,7 +10,7 @@ export class SequencerService {
 
 	private bpm = 120;
 
-	private timer = Observable.timer(0, this.bpmToMiliseconds(this.bpm) );
+	private timer = Observable.timer(0, this.bpmToMs(this.bpm) );
 	private timeSub: Subscription;
 	
 	sequence = new BehaviorSubject(-1);
@@ -23,7 +23,7 @@ export class SequencerService {
 	
 	setBpm(bpm: number){
 		this.bpm = bpm;
-		this.timer = Observable.timer(0, this.bpmToMiliseconds(this.bpm) );
+		this.timer = Observable.timer(0, this.bpmToMs(this.bpm) );
 	}
 	
 	
@@ -40,8 +40,8 @@ export class SequencerService {
 	}
 
 
-	private bpmToMiliseconds(bpm): number{
-		return ( 60000 / bpm );
+	bpmToMs(bpm): number {
+		return (( 60000 / bpm ) / 4 ) ;
 	}
 
 

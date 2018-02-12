@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Track } from "../../models/track";
 import { SequencerService } from "../../services/sequencer.service";
 import { Subscription } from "rxjs/Rx";
@@ -32,8 +32,6 @@ export class TrackLaneComponent {
 			if(step.on){
 				this.playerService.play(this.track.sound, step.velocity);
 			}
-
-
 		}
 	}
 
