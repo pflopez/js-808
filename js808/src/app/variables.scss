@@ -1,0 +1,31 @@
+$machine-bg-color: #313131;
+$machine-border-color: #aaa;
+$machine-font-color: #ddd;
+
+$button-off-color: #666;
+$button-off-border: #777;
+
+$button-active-color: #ab5656;
+$button-active-border: #DD6F6F;
+
+@mixin active-button {
+  background-color: $button-active-color;
+  border-color: $button-active-border;
+  box-shadow: 0px 0px 2px 2px $button-active-color;
+}
+
+@mixin active-button-strong($box-glow: 3px) {
+  background-color: #e87676;
+  border-color: #ff9999;
+  box-shadow: 0px 0px 4px $box-glow #e87676;
+}
+
+@mixin sequencer-button($width, $height){
+  width: $width;
+  height: $height;
+  background-color: $button-off-color;
+  border-radius: 5px;
+  border: 2px $button-off-border solid;
+}
+
+

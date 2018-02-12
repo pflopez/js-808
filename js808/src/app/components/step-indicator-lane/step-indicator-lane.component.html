@@ -1,5 +1,5 @@
 
 <div *ngFor="let step of steps; let i = index" class="step-indicator-lane__item">
-    <div>{{i+1}}</div>
-    <step-indicator [step]="step"></step-indicator>
+    <div class="step-indicator-lane__number">{{i+1}}</div>
+    <step-indicator [step]="step" [class.step-indicator__beat]="i%4==0"></step-indicator>
 </div>

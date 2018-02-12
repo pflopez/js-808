@@ -1,0 +1,7 @@
+<div class="sequencer-selector__numbers">
+    <div *ngFor="let step of steps; let i = index" class="sequencer-selector__number">
+        {{i+1}}
+        <step-indicator [step]="step"></step-indicator>
+    </div>
+</div>
+<button (click)="changeStep()" class="sequencer-selector__button"></button>

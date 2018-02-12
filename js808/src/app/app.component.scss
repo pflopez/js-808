@@ -1,12 +1,23 @@
+@import "variables";
+
+
 :host {
+  color: $machine-font-color;
   display: block;
-  padding: 20px;
+  padding: 0;
+  border: 2px solid $machine-border-color;
+  background-color: $machine-bg-color;
+  max-width: 1024px;
 }
 
 
 .machine__header {
   display: flex;
   justify-content: space-between;
+  padding: 5px 27px 20px 10px;
+  background-color: #252525;
+  color: #555;
+  margin: 4px 4px 10px;
 }
 
 .machine__name {
@@ -18,13 +29,64 @@
   align-items: center;
 }
 
-.control-element {
-  border: 1px solid black;
-  font-size: 20px;
-  border-radius: 0;
-  margin: 0 5px;
+.machine__sequencer {
+  padding: 20px 25px 25px 5px;
 }
+
+
+
+
+.control-element {
+  @include sequencer-button(40px,32px);
+  margin-left: 15px;
+  &.control-element_action {
+    &:active {
+      @include active-button;
+      outline:none;
+    }
+  }
+  &:active {
+    outline:none;
+  }
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.control-element__play {
+  position: relative;
+  &:after{
+    line-height: 0;
+    top: 16px;
+    position: absolute;
+    font-size: 28px;
+    display: block;
+    content: '\25B6';
+    color: #222;
+  }
+}
+
+.control-element__stop {
+  position: relative;
+  &:after{
+    line-height: 0;
+    top: 4px;
+    left: 8px;
+    position: absolute;
+    font-size: 50px;
+    display: block;
+    content: '';
+    width: 21px;
+    height: 21px;
+    background-color: #222;
+  }
+
+}
+
 
 .control-element_input {
   width: 80px;
+  font-size: 14px;
+  font-weight: bold;
 }

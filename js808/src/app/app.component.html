@@ -2,19 +2,18 @@
     <div class="machine__name">JS- 808</div>
 
     <div class="machine__controls">
-        <button class="control-element" (click)="start()" [disabled]="playing">Start</button>
-        <button class="control-element" (click)="stop()">Stop</button>
+        <button class="control-element control-element__play control-element_action" (click)="start()" [disabled]="playing"></button>
+        <button class="control-element control-element__stop control-element_action" (click)="stop()"></button>
 
         <input [(ngModel)]="bpm" class="control-element control-element_input" [disabled]="playing">
         <div>BPM</div>
 
-        <select (change)="changeSequence(selectElem.value)" #selectElem class="control-element" [disabled]="playing">
-            <option *ngFor="let sequence of sequences; let i = index" [value]="i"> Sequence {{i+1}}</option>
-        </select>
+        <sequence-selector (changeSequence)="changeSequence($event)"></sequence-selector>
+        
     </div>
 
 </section>
-<section>
+<section class="machine__sequencer">
     <step-indicator-lane></step-indicator-lane>
     <track-lane *ngFor="let track of sequence.tracks" [track]="track"></track-lane>
 </section>

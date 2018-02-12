@@ -25,7 +25,7 @@ export class AppComponent {
 
   }
 
-  changeSequence(index){
+  changeSequence(index: number){
     this.sequence = sequences[index];
   }
 

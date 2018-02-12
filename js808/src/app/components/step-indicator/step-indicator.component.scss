@@ -1,12 +1,26 @@
+@import "../../variables";
+
+:host{
+
+  &.step-indicator__beat{
+    .step-indicator_active{
+      @include active-button-strong(5px);
+
+    }
+  }
+}
+
 .step-indicator {
-  width: 15px;
-  height: 15px;
-  margin: 0 10px 10px;
-  background-color: #aaa;
+  width: 8px;
+  height: 8px;
+  margin: 0 5px;
+  background-color: $button-off-color;
   display: inline-block;
   border-radius: 50%;
+  border: 1px solid $button-off-border;
 
   &.step-indicator_active{
-    background-color: red;
+   @include active-button;
+
   }
 }

@@ -1,12 +1,15 @@
-.step-button {
-  width: 25px;
-  height: 35px;
-  margin: 5px;
-  background-color: #aaa;
-  display: inline-block;
-  border-radius: 5px;
+@import "../../variables";
 
+:host {
+  margin: 5px;
+  flex:1
+}
+
+.step-button {
+  @include sequencer-button(auto, 4vw);
+  min-height:20px;
   &.step-button_on {
-    background-color: #e87676;
+    @include active-button-strong;
   }
 }
+

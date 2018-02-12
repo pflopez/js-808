@@ -1,0 +1,27 @@
+@import "../../variables";
+
+:host {
+  display: flex;
+  align-items: center;
+  margin-left: 30px;
+}
+
+
+.sequencer-selector__number{
+  width: 30px;
+  display: flex;
+}
+
+.sequencer-selector__button {
+  @include sequencer-button(35px, 45px);
+  margin-left:10px;
+
+  &:active {
+    @include active-button;
+    outline:none;
+  }
+
+  &:focus {
+    outline: none;
+  }
+}

@@ -1,9 +1,17 @@
 :host{
   display: flex;
+  align-items: center;
 }
 
 .track-lane__name {
   min-width: 100px;
   padding: 10px;
   text-align: right;
+  text-transform: uppercase;
+  font-size: 12px;
+}
+
+.track-lane__steps {
+  display: flex;
+  flex: 1;
 }
