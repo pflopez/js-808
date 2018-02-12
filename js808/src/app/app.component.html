@@ -6,10 +6,10 @@
         <button class="control-element control-element__stop control-element_action" (click)="stop()"></button>
 
         <input [(ngModel)]="bpm" class="control-element control-element_input" [disabled]="playing">
-        <div>BPM</div>
+        <div class="machine__bpm-label">BPM</div>
 
         <sequence-selector (changeSequence)="changeSequence($event)"></sequence-selector>
-        
+
     </div>
 
 </section>

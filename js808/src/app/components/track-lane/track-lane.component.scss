@@ -1,6 +1,11 @@
 :host{
   display: flex;
   align-items: center;
+
+  @media screen and (max-width: 320px) {
+    display: block;
+    padding-bottom:15px;
+  }
 }
 
 .track-lane__name {
@@ -9,6 +14,11 @@
   text-align: right;
   text-transform: uppercase;
   font-size: 12px;
+
+  @media screen and (max-width: 320px) {
+    padding-left:0;
+    text-align: left;
+  }
 }
 
 .track-lane__steps {
