@@ -21,7 +21,7 @@ On the four hour mark I didn't had time to make the UI any prettier than a wiref
 - Spend some time on testing that I didn't initially planned for. 
 - Spend more than an hour on adding UI flavor.
 - I did add some responsiveness, but simpler than I initially thought.
-- Did not add velocity parameters (a long-press will be a nice UI for it!) 
+- Did not add velocity parameters (a long-press will be a nice UX for it!) 
 - Did not add the functionality to change time on the fly.
 
 # Installation
