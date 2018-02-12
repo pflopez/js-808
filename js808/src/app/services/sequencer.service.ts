@@ -36,7 +36,11 @@ export class SequencerService {
 	stop(){
 		//reset sequence
 		this.sequence.next(-1);
-		this.timeSub.unsubscribe();
+		if(this.timeSub){
+			this.timeSub.unsubscribe();
+			this.timeSub = null;
+		}
+
 	}
 
 
