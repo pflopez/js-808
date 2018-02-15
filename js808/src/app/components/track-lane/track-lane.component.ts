@@ -4,6 +4,7 @@ import { SequencerService } from "../../services/sequencer.service";
 import { Subscription } from "rxjs/Rx";
 import { PlayerService } from "../../services/player.service";
 import {Howl} from 'howler';
+import { StepIndicator } from "../../models/step";
 
 
 @Component({
@@ -15,10 +16,12 @@ export class TrackLaneComponent {
 
 	@Input() track: Track;
 	sequence: Subscription;
-
+	stepsIndicators: StepIndicator[];
+	
 	private sound: Howl;
 
 	constructor( private sequencerService: SequencerService, private playerService: PlayerService ){
+		this.stepsIndicators = Array(16).fill({}).map( ()=> { return { active: false } } );
 	}
 
 
@@ -40,24 +43,14 @@ export class TrackLaneComponent {
 		if( stepNumber >= 0 ){
 			const step = this.track.steps[stepNumber];
 			if(step.on && this.sound){
-				this.sound.volume( this.velocityToVolume(step.velocity) );
+				this.sound.volume( step.velocity.volume );
 				this.sound.play();
 			}
 		}
-	}
-
-
-	velocityToVolume( vel ){
-		if(vel === 0){
-			return 0.25
-		}
-		if(vel === 1 ){
-			return 0.66;
-		}
-		if(vel === 2){
-			return 1;
+		this.stepsIndicators.forEach( (step) => { step.active = false } );
+		if(stepNumber >= 0){
+			this.stepsIndicators[stepNumber].active = true;
 		}
 	}
-
 
 }

@@ -2,8 +2,16 @@ import { Injectable } from '@angular/core';
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/observable/timer';
 import { Subscription, BehaviorSubject } from "rxjs/Rx";
+import { Velocity } from "../models/velocity";
 
 const totalSteps = 16;
+
+
+
+export const VELOCITY_LOW  = { volume: 0.23, label: 'low' };
+export const VELOCITY_MED  = { volume: 0.66, label: 'med' };
+export const VELOCITY_HIGH = { volume: 1,    label: 'high' };
+	
 
 @Injectable()
 export class SequencerService {
@@ -13,7 +21,7 @@ export class SequencerService {
 	private timer = Observable.timer(0, this.bpmToMs(this.bpm) );
 	private timeSub: Subscription;
 
-	private seqVelocity = 0;
+	private seqVelocity: Velocity = VELOCITY_LOW;
 	
 	sequence = new BehaviorSubject(-1);
 
@@ -28,9 +36,19 @@ export class SequencerService {
 		this.timer = Observable.timer(0, this.bpmToMs(this.bpm) );
 	}
 	
-	setSequencerVelocity( vel ){
-		console.log('setting velocit', vel)
-		this.seqVelocity = vel;
+	setSequencerVelocity( pos: number ){
+		switch (pos) {
+			case 0:
+				this.seqVelocity = VELOCITY_LOW;
+				break
+			case 1:
+				this.seqVelocity = VELOCITY_MED;
+				break;
+			case 2:
+				this.seqVelocity = VELOCITY_HIGH;
+				break
+		}
+		
 	}
 
 	getSequencerVelocity(){

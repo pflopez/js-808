@@ -10,6 +10,7 @@
   max-width: 1024px;
   @media screen and (max-width: $phone-breakpoint) {
     height: 100%;
+    padding: 0px 1px;
   }
 }
 
@@ -53,7 +54,7 @@
 .machine__sequencer {
   padding: 0 25px 45px 5px;
   @media screen and (max-width: $phone-breakpoint) {
-    padding: 10px;
+    padding: 0;
   }
 }
 
@@ -63,6 +64,16 @@
   }
 }
 
+
+.machine__track-selector {
+
+  display: none;
+  @media screen and (max-width: $phone-breakpoint) {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 5px 25px;
+  }
+}
 
 
 .control-element {
@@ -121,4 +132,25 @@
   width: 40px;
   font-size: 14px;
   font-weight: bold;
+}
+
+
+.machine__button {
+  margin: 0 5px;
+  flex:1;
+
+  &:active {
+    @include active-step(#9aa096);
+    outline:none;
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  @include sequencer-button(auto, 30px);
+
+  &.machine__button_on {
+    @include active-step(#C3CABD);
+  }
 }

@@ -2,11 +2,12 @@
 import { Sequence } from "./models/sequence";
 import { Track } from "./models/track";
 import { Step } from "./models/step";
+import { VELOCITY_MED } from "./services/sequencer.service";
 
 
 function generateSequence( sequence: number[]): Step[]{
 	return sequence.map( ( n ) => {
-		return n ? { on: true , velocity: 2 } : { on: false , velocity: 2 };
+		return n ? { on: true , velocity: VELOCITY_MED } : { on: false , velocity: VELOCITY_MED };
 	});
 }
 

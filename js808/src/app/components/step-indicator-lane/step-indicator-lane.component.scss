@@ -11,7 +11,7 @@
   border-width: 0 1px 1px 0;
 
   @media screen and (max-width: $phone-breakpoint) {
-    margin-left: 0px;
+    display: none;
   }
 }
 

@@ -1,7 +1,7 @@
 <div class="sequencer-selector__numbers">
     <div *ngFor="let step of steps; let i = index" class="sequencer-selector__number">
         <div class="sequencer-selector__label">{{i+1}}</div>
-        <step-indicator [step]="step" class="{{ 'step-indicator__' + i }}" ></step-indicator>
+        <step-indicator [step]="step"></step-indicator>
     </div>
 </div>
 <button (click)="changeStep()" class="sequencer-selector__button"></button>

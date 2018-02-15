@@ -3,18 +3,29 @@
 :host {
   display: flex;
   align-items: center;
-  margin-left: 30px;
+
+  justify-content: flex-end;
+  padding: 0 10px 25px;
+}
+
+.velocity-selector__label {
+  display: none;
 }
 
 
-.sequencer-selector__number{
+.velocity-selector__numbers {
+  display: flex;
+}
+
+
+.velocity-selector__number {
   width: 30px;
   display: flex;
   justify-content: flex-end;
 }
 
-.sequencer-selector__button {
-  @include sequencer-button(35px, 45px);
+.velocity-selector__button {
+  @include sequencer-button(30px, 20px);
   margin-left:10px;
 
   &:active {

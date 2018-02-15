@@ -1,6 +1,7 @@
+import { Velocity } from "./velocity";
 export interface Step {
 	on: boolean;
-	velocity?: number; 
+	velocity?: Velocity;
 }
 
 export interface StepIndicator {

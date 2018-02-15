@@ -11,6 +11,8 @@ import { SequencerService } from "./services/sequencer.service";
 import { PlayerService } from "./services/player.service";
 import { FormsModule } from "@angular/forms";
 import { SequenceSelectorComponent } from "./components/sequence-selector/sequence-selector.component";
+import { VelocitySelectorComponent } from "./components/velocity-selector/velocity-selector.component";
+
 
 
 @NgModule({
@@ -20,7 +22,8 @@ import { SequenceSelectorComponent } from "./components/sequence-selector/sequen
     TrackLaneComponent,
     StepIndicatorComponent,
     StepIndicatorLaneComponent,
-    SequenceSelectorComponent
+    SequenceSelectorComponent,
+    VelocitySelectorComponent
   ],
   imports: [
     BrowserModule,

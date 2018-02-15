@@ -12,3 +12,15 @@ body{
   }
 }
 
+
+.on-small {
+  display: none;
+  @media screen and (max-width: $phone-breakpoint) {
+    display: block;
+  }
+}
+
+
+
+
+

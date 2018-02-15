@@ -20,7 +20,20 @@
 
 </section>
 <section class="machine__sequencer">
-    <sequence-selector (changeSequence)="changeVelocity($event)" class="sequence-selector_velocity"></sequence-selector>
+    <div>
+        <velocity-selector (changeVelocity)="changeVelocity($event)" class="sequence-selector_velocity"></velocity-selector>
+        <div class="machine__track-selector">
+            <button class="machine__button"
+                    (click)="selectTrack(track)"
+                    [class.machine__button_on]="trackSelected == track"
+                    *ngFor="let track of sequence.tracks">{{track.instrument}}</button>
+        </div>
+
+
+    </div>
     <step-indicator-lane></step-indicator-lane>
-    <track-lane *ngFor="let track of sequence.tracks" [track]="track" velocity="velocity"></track-lane>
+
+
+    <track-lane *ngFor="let track of sequence.tracks; let i = index" [track]="track" velocity="velocity"
+            [class.track-lane_selected]="track === trackSelected"></track-lane>
 </section>

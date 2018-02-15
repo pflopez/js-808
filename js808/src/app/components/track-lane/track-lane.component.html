@@ -1,4 +1,5 @@
 <div class="track-lane__name">{{ track.instrument }}</div>
-<div class="track-lane__steps">
-    <step-button *ngFor="let step of track.steps" [step]="step"></step-button>
+<div class="track-lane__steps" *ngFor="let step of track.steps; let i = index">
+    <step-indicator [step]="stepsIndicators[i]" class="on-small"></step-indicator>
+    <step-button  [step]="step"></step-button>
 </div>

@@ -24,16 +24,6 @@
 
 
   &.step-button_on {
-    &.step-button__low {
-      @include active-step($button-low-velocity);
-    }
-
-    &.step-button__med {
-      @include active-step($button-mid-velocity);
-    }
-    &.step-button__high {
-      @include active-step($button-active-color);
-    }
-
+    @include active-step($button-active-color);
   }
 }
