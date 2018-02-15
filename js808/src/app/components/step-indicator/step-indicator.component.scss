@@ -32,18 +32,18 @@
   :host{
     &.step-indicator__0 {
       .step-indicator_active {
-        @include active-step(yellow);
+        @include active-step($button-low-velocity);
       }
     }
 
     &.step-indicator__1 {
       .step-indicator_active {
-        @include active-step(orange);
+        @include active-step($button-mid-velocity);
       }
     }
     &.step-indicator__2 {
       .step-indicator_active {
-        @include active-step(red);
+        @include active-step($button-active-color);
       }
     }
   }

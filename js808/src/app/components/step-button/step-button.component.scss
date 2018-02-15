@@ -15,14 +15,14 @@
 
   &.step-button_on {
     &.step-button__0 {
-      @include active-step(#ecdc4e);
+      @include active-step($button-low-velocity);
     }
 
     &.step-button__1 {
-      @include active-step(#ffa64f);
+      @include active-step($button-mid-velocity);
     }
     &.step-button__2 {
-      @include active-step(#ab5656);
+      @include active-step($button-active-color);
     }
 
   }
