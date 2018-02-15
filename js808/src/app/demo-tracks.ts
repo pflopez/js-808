@@ -18,24 +18,24 @@ const all         = [ 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ];
 const alternate   = [ 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0 ];
 
 const sequenceOne = new Sequence([
-	new Track('Drums', generateSequence(fourInFloor), 'drum.wav'),
-	new Track('Snare', generateSequence(offBeat), 'snare.wav' ),
-	new Track('Open Hat', generateSequence(accent), 'open-hat.wav'),
-	new Track('Closed Hat', generateSequence(fourInFloor), 'closed-hat.wav')
+	new Track('Drums', generateSequence(fourInFloor), 'kick.m4a'),
+	new Track('Snare', generateSequence(offBeat), 'snare.m4a' ),
+	new Track('Open Hat', generateSequence(accent), 'open-hit-hat.m4a'),
+	new Track('Closed Hat', generateSequence(fourInFloor), 'closed-hit-hat.m4a')
 ]);
 
 const sequenceTwo = new Sequence([
-	new Track('Drums', generateSequence(fourInFloor), 'drum.wav'),
-	new Track('Snare', generateSequence(offBeat), 'snare.wav' ),
-	new Track('Open Hat', generateSequence(empty), 'open-hat.wav'),
-	new Track('Closed Hat', generateSequence(all), 'closed-hat.wav')
+	new Track('Drums', generateSequence(fourInFloor), 'kick.m4a'),
+	new Track('Snare', generateSequence(offBeat), 'snare.m4a' ),
+	new Track('Open Hat', generateSequence(empty), 'open-hit-hat.m4a'),
+	new Track('Closed Hat', generateSequence(all), 'closed-hit-hat.m4a')
 ]);
 
 const sequenceTree = new Sequence([
-	new Track('Drums', generateSequence(alternate), 'drum.wav'),
-	new Track('Snare', generateSequence(fourInFloor), 'snare.wav' ),
-	new Track('Open Hat', generateSequence(empty), 'open-hat.wav'),
-	new Track('Closed Hat', generateSequence(all), 'closed-hat.wav')
+	new Track('Drums', generateSequence(alternate), 'kick.m4a'),
+	new Track('Snare', generateSequence(fourInFloor), 'snare.m4a' ),
+	new Track('Open Hat', generateSequence(empty), 'open-hit-hat.m4a'),
+	new Track('Closed Hat', generateSequence(all), 'closed-hit-hat.m4a')
 ]);
 
 export const sequences = [sequenceOne, sequenceTwo, sequenceTree];

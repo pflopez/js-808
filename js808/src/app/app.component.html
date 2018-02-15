@@ -3,7 +3,10 @@
 
     <div class="machine__controls">
         <div class="machine__controls__time">
-            <button class="control-element control-element__play control-element_action" (click)="start()" [disabled]="playing"></button>
+            <button class="control-element control-element__play control-element_action"
+                    [class.control-element_on]="playing"
+                    (click)="start()"
+                    [disabled]="playing"></button>
             <button class="control-element control-element__stop control-element_action" (click)="stop()"></button>
 
             <input [(ngModel)]="bpm" class="control-element control-element_input" [disabled]="playing">

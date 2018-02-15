@@ -30,9 +30,12 @@
 .machine__name {
   font-size: 40px;
   white-space:nowrap;
+  color: #bbb;
+  margin-left: 10px;
 
   @media screen and (max-width: $phone-breakpoint) {
     text-align: center;
+    margin-left: 0;
   }
 }
 .machine__controls {
@@ -64,6 +67,9 @@
 
 .control-element {
   @include sequencer-button(40px,32px);
+  &.control-element_on {
+    @include active-button;
+  }
   margin-left: 15px;
   &.control-element_action {
     &:active {
