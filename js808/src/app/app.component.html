@@ -20,6 +20,7 @@
 
 </section>
 <section class="machine__sequencer">
+    <sequence-selector (changeSequence)="changeVelocity($event)" class="sequence-selector_velocity"></sequence-selector>
     <step-indicator-lane></step-indicator-lane>
-    <track-lane *ngFor="let track of sequence.tracks" [track]="track"></track-lane>
+    <track-lane *ngFor="let track of sequence.tracks" [track]="track" velocity="velocity"></track-lane>
 </section>

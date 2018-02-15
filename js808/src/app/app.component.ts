@@ -19,6 +19,7 @@ export class AppComponent {
   bpm : number;
 
 
+
  
   constructor( private sequencerService: SequencerService ){
     this.bpm = this.sequencerService.getBpm();
@@ -38,6 +39,10 @@ export class AppComponent {
   stop(){
     this.playing = false;
     this.sequencerService.stop();
+  }
+
+  changeVelocity(index: number){
+    this.sequencerService.setSequencerVelocity(index);
   }
 
 

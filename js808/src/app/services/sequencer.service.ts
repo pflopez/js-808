@@ -12,6 +12,8 @@ export class SequencerService {
 
 	private timer = Observable.timer(0, this.bpmToMs(this.bpm) );
 	private timeSub: Subscription;
+
+	private seqVelocity = 0;
 	
 	sequence = new BehaviorSubject(-1);
 
@@ -26,7 +28,16 @@ export class SequencerService {
 		this.timer = Observable.timer(0, this.bpmToMs(this.bpm) );
 	}
 	
-	
+	setSequencerVelocity( vel ){
+		console.log('setting velocit', vel)
+		this.seqVelocity = vel;
+	}
+
+	getSequencerVelocity(){
+		return this.seqVelocity;
+	}
+
+
 	start(){
 		this.timeSub = this.timer.subscribe( ( step: number )=> {
 			this.sequence.next(step % totalSteps);

@@ -1,5 +1,6 @@
 <div
     class="step-button"
+    [ngClass] = "'step-button__' + step.velocity"
     (click)="toggle()"
     [class.step-button_on]="step.on">
 </div>

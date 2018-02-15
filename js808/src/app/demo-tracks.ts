@@ -6,7 +6,7 @@ import { Step } from "./models/step";
 
 function generateSequence( sequence: number[]): Step[]{
 	return sequence.map( ( n ) => {
-		return n ? { on: true , velocity: 100 } : { on: false , velocity: 100 };
+		return n ? { on: true , velocity: 2 } : { on: false , velocity: 2 };
 	});
 }
 

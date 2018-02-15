@@ -11,8 +11,20 @@
 .step-button {
   @include sequencer-button(auto, 4vw);
   min-height:20px;
+
+
   &.step-button_on {
-    @include active-button-strong;
+    &.step-button__0 {
+      @include active-step(#ecdc4e);
+    }
+
+    &.step-button__1 {
+      @include active-step(#ffa64f);
+    }
+    &.step-button__2 {
+      @include active-step(#ab5656);
+    }
+
   }
 }
 

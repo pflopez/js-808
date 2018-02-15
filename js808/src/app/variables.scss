@@ -30,4 +30,8 @@ $phone-breakpoint : 412px;
   border: 2px $button-off-border solid;
 }
 
-
+@mixin active-step($color) {
+  background-color: $color;
+  border-color: lighten($color, 10%);
+  box-shadow: 0px 0px 2px 2px $color;
+}

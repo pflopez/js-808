@@ -3,7 +3,7 @@ import { Track } from "../../models/track";
 import { SequencerService } from "../../services/sequencer.service";
 import { Subscription } from "rxjs/Rx";
 import { PlayerService } from "../../services/player.service";
-import {Howl, Howler} from 'howler';
+import {Howl} from 'howler';
 
 
 @Component({
@@ -40,12 +40,24 @@ export class TrackLaneComponent {
 		if( stepNumber >= 0 ){
 			const step = this.track.steps[stepNumber];
 			if(step.on && this.sound){
+				this.sound.volume( this.velocityToVolume(step.velocity) );
 				this.sound.play();
-				//this.playerService.play(this.track.sound, step.velocity);
 			}
 		}
 	}
 
+
+	velocityToVolume( vel ){
+		if(vel === 0){
+			return 0.25
+		}
+		if(vel === 1 ){
+			return 0.66;
+		}
+		if(vel === 2){
+			return 1;
+		}
+	}
 
 
 }

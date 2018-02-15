@@ -4,6 +4,28 @@
   display: flex;
   align-items: center;
   margin-left: 30px;
+
+  &.sequence-selector_velocity {
+
+    padding: 20px 0 20px;
+    justify-content: flex-end;
+
+    .sequencer-selector__label{
+      display: none;
+    }
+
+    .sequencer-selector__numbers {
+      display: flex;
+
+    }
+
+    .sequencer-selector__button {
+      width: 30px;
+      height: 20px;
+    }
+  }
+
+
 }
 
 

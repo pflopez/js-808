@@ -19,8 +19,32 @@
   border-radius: 50%;
   border: 1px solid $button-off-border;
 
-  &.step-indicator_active{
+  &.step-indicator_active {
    @include active-button;
 
+  }
+}
+
+
+
+/// velocity modifiers, with tragic nesting
+.sequence-selector_velocity{
+  :host{
+    &.step-indicator__0 {
+      .step-indicator_active {
+        @include active-step(yellow);
+      }
+    }
+
+    &.step-indicator__1 {
+      .step-indicator_active {
+        @include active-step(orange);
+      }
+    }
+    &.step-indicator__2 {
+      .step-indicator_active {
+        @include active-step(red);
+      }
+    }
   }
 }
