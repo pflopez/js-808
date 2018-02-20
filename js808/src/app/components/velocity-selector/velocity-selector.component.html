@@ -1,7 +1,7 @@
 <div class="velocity-selector__numbers">
     <div *ngFor="let step of steps; let i = index" class="velocity-selector__number">
-        <div class="velocity-selector__label">{{i+1}}</div>
         <step-indicator [step]="step" class="{{ 'step-indicator__' + i }}" ></step-indicator>
+        <div class="velocity-selector__label">{{step.label}}</div>
     </div>
 </div>
 <button (click)="changeStep()" class="velocity-selector__button"></button>

@@ -138,6 +138,7 @@
 .machine__button {
   margin: 0 5px;
   flex:1;
+  font-size: 11px;
 
   &:active {
     @include active-step(#9aa096);

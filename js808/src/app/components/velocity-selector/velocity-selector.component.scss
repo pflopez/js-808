@@ -9,7 +9,8 @@
 }
 
 .velocity-selector__label {
-  display: none;
+  font-size: 11px;
+  padding-right: 10px;
 }
 
 
@@ -19,9 +20,9 @@
 
 
 .velocity-selector__number {
-  width: 30px;
   display: flex;
   justify-content: flex-end;
+  align-items: center;
 }
 
 .velocity-selector__button {
